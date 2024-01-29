@@ -1,0 +1,4 @@
+Cars 
+When was The Ford created? ^1967 1956 1990 *A
+Ilk elektromobil hansi markadir?^Toyota Nissan Tesla *C
+Dodge challenger necenci ilde istehsali dayandi?^2022 2023 2024 *B
