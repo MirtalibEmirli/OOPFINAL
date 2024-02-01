@@ -68,7 +68,7 @@ public:
 	}
 
 };
-//
+
 class Sual {
 	//
 	string _sual; 
@@ -102,13 +102,11 @@ public:
 
 };
 
-
-
 class Result {
 	int Correct = 0; 
 	int InCorrect = 0; 
 	int Pass = 0; 
-	string rsult; 
+	int result=0; 
 public: 
 	void increasecorrect() { 
 		Correct++; 
@@ -119,11 +117,17 @@ public:
 	}void increasepass() {
 		Pass++;
 
+	}void increaseresult() {
+		result+=10;
+
 	}
 	int Getcorrect() {
 		return Correct;
 
-	}int Getincorrect() { 
+	}int Getresult() {
+		return result;
+
+	}int Getincorrect() {
 		return InCorrect;
 
 	}int Getpass() {
@@ -132,8 +136,6 @@ public:
 	}
 
 };
-
-
 
 template<typename T>
 class DbSet {
@@ -289,6 +291,7 @@ public:
 	}
 
 };
+
 class Database {
 public:
 	DbSet<Admin>admins;
@@ -356,11 +359,11 @@ public:
 
 		suals.addsual(sual1);
 
-		ofstream filename("quizler.txt", ios::app);
+		fstream filename("quizler.txt", ios::app);
 		filename << quizname<<"\n";
 		filename.close();
 
-		ofstream file(quizname + ".txt", ios::app);
+		fstream file(quizname + ".txt", ios::app);
 		if (file.is_open())
 			file << quizname << "\n" << sual1->Getsual() << "^" << variant1 << " " << variant2 << " " << variant3<<"*"<<correct << endl;
 		else
@@ -369,7 +372,7 @@ public:
 		cout << endl;
 		cout << endl;
 
-
+		file.close();
 
 		
 		 
@@ -404,17 +407,18 @@ public:
 
 		suals.addsual(sual2);
 
+		fstream file2(quizname + ".txt", ios::app); 
 
 
-		if (file.is_open())
-			file << sual1->Getsual() << "^" << variant1 << " " << variant2 << " " << variant3 << "*" << correct << endl;      
+		if (file2.is_open())
+			file2 << sual2->Getsual() << "^" << variant1 << " " << variant2 << " " << variant3 << "*" << correct << endl;      
 
 		else
 			cout << "File aclmadi" << endl; 
 
 		cout << endl;
 		cout << endl;
-
+		file2.close();
 
 		cout << RED << "Enter thrid question => " << WHITE;
 		getline(cin, question);
@@ -443,18 +447,19 @@ public:
 		Sual* sual3 = new Sual(quizname, question, variants, correct);
 
 		suals.addsual(sual3);
+		fstream file3(quizname + ".txt", ios::app); 
 
 		   
 
 
 
-		if (file.is_open())
-			file << sual1->Getsual() << "^" << variant1 << " " << variant2 << " " << variant3 << "*" << correct << endl;
+		if (file3.is_open())
+			file3 << sual3->Getsual() << "^" << variant1 << " " << variant2 << " " << variant3 << "*" << correct << endl;
 		else
 			cout << "File aclmadi" << endl;
 
 
-		file.close();
+		file3.close();
 
 
 		cout << endl;
