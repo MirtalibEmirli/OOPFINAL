@@ -96,7 +96,7 @@ public:
 	bool checkcorrect(string cavab) const {
 		return (cavab == _duzguncavab);
 	}
-
+	
 
 
 
@@ -294,6 +294,7 @@ public:
 
 class Database {
 public:
+	
 	DbSet<Admin>admins;
 	DbSet<Guest>guest;
 	DbSet<Sual> suals;
@@ -315,7 +316,7 @@ public:
 		return false;
 	}
 
-	void createquiz() { 
+	void createquiz()noexcept { 
 
 		string quizname; 
 		string question;  

@@ -16,15 +16,22 @@ using namespace std;
 #include <vector>
 #include <cassert>
 #include "clacces.h"
-#include "createquiz.h"
+#include <map>
 #include "Header.h"
+
+
+
 int main() 
 {
+	/*map<string, int> resultss; 
+	
+	resultss["admin"] = 10; 
+	resultss.key_comp(); */
 	start(); 
 	//Database db;
 	//db.createquiz();
 	//cout << BOLDCYAN << "A" << endl;
 
 	//creaatequiz(); 
-	
+
 }

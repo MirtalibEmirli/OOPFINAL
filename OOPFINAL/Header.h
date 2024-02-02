@@ -316,12 +316,12 @@ void start() {
 
 						break;
 					}
-					
+			
 
 
 				}
 
-
+				break;
 
 
 				
@@ -334,13 +334,14 @@ void start() {
 
 		}
 
+
+
 		else if (select == 2)
 		
 		
 		{
 
 
-#pragma region enteradmn   
 			cin.ignore();
 
 			string username, password;
@@ -365,75 +366,37 @@ void start() {
 					while (true)
 					{
 						cout << menuAdmin << endl;
-						int a;
+						int v;
 						cout << RED << "secim edin => " << WHITE;
-						cin >> a;
+						cin >> v;
 
 
-#pragma endregion       
 
-						/*   R"(
-				[1] =>  Create Quiz+
-				[2] =>  Start Quiz+
-				[3] =>  Leader Board(Top - 10)
-				[4] =>  Add admin :)
-				[5] =>  Show all admins ^!^
-				[0] =>  Exit )";;*/
+						
 
-						if (a == 1) {
+						if (v == 1) {
 							cin.ignore();
 							db.createquiz();
 						}
-						else if (a == 2) {
-							cin.ignore();
+						else if (v == 2) {
 							
-#pragma region enter    
-							fstream players("adminplayers.txt", ios::app); 
-							players << adminnezaret->GetUsername() << "\n";
+							//players fayln ac elave ed oyuncunu sildin
+
+
 							Sleep(500);
-							players.close();
-							system("CLS");
+							system("cls");
 
-							cout << endl;
-
-							cout << endl;
-
-
-							cout << endl;
-
-							int a;
-
-							cout << CYAN << menuAdmin << WHITE << endl; 
-
-
-							cout << endl;
-
-							cout << endl;
-
-							cout << "Enter your choice => ";
-
-							cin >> a;
-
-							cout << endl;
-
-							cout << endl;
-#pragma endregion
-
-#pragma region start 
 
 							while (true)
 							{
-								if (a == 1)
-								{
-#pragma region  quizlerinsecimi
 
-									cin.ignore();
 
 
 									fstream file1("quizler.txt");
 									if (!file1.is_open()) {
 										cout << "File açılamadı!" << std::endl;
 									}
+
 
 									string quizname;
 
@@ -444,6 +407,7 @@ void start() {
 									file1.close();
 
 									cout << endl;
+									cin.ignore();
 
 									string name;
 									cout << RED << "Enter quizname " << WHITE;
@@ -460,11 +424,9 @@ void start() {
 
 
 
-#pragma endregion
 
 
 
-#pragma region vectorsss
 
 									string question;
 									vector<string> questions;
@@ -478,14 +440,11 @@ void start() {
 
 									Result r11;
 									int sans = 3;
-#pragma endregion
 
 
-#pragma region gedisat3raund
 
 									for (size_t i = 1; i < 4; i++)
 									{
-#pragma region variantlar
 										int questionend = questions[i].find("^");
 										string question = questions[i].substr(0, questionend);
 										cout << question << " " << endl;
@@ -511,10 +470,8 @@ void start() {
 										}
 										cout << endl;
 										cout << endl;
-#pragma endregion    
 
 
-#pragma region  cavabhissesi
 
 										char cavabs;
 										int chch;
@@ -561,11 +518,9 @@ void start() {
 
 									}
 
-#pragma endregion    
 
 
 
-#pragma region :)     
 
 									if (sans == 0) {
 										Sleep(500);
@@ -586,10 +541,7 @@ void start() {
 
 										break;
 									}
-#pragma endregion     
 
-
-#pragma region    netice
 
 
 									cout << endl;
@@ -608,39 +560,30 @@ void start() {
 									system("cls");
 
 									break;
-								}
+								
 
 
-								else if (a == 0) {
-									cout << MAGENTA << "You return to first menu baby :)" << WHITE << endl;
+								
 
-									Sleep(1000);
 
-									system("cls");
 
-									break;
-								}
+
 
 
 							}
-#pragma endregion    
 
-#pragma endregion
 
-#pragma endregion 
+							break;
 
 						}//
 
-						else if (a == 3) {
+						else if (v == 3) {
 							//seher bax
 
-							fstream result("results.txt");
+							/*fstream result("results.txt");
 							string admin;
 							vector<string> admins;
-							while (getline(result, admin)) {
-								admins.push_back(admin); 
-
-							}
+							
 
 							for (size_t i = 1; i < 4; i++)
 							{
@@ -654,10 +597,11 @@ void start() {
 
 								char correct = admins[i].back();
 
-							}
+							}*/
+							break;
 
 						}
-						else if (a == 5) { 
+						else if (v == 5) { 
 
 							Sleep(800);
 
@@ -680,7 +624,7 @@ void start() {
 							Sleep(2000);
 							system("cls");
 						}
-						else if (a == 4) {
+						else if (v == 4) {
 							Sleep(800);
 
 							system("cls");
@@ -706,7 +650,7 @@ void start() {
 
 
 
-						else if (a == 0) { 
+						else if (v == 0) { 
 
 							cout << MAGENTA << "You return to first menu  :)" << WHITE << endl; 
 
@@ -729,13 +673,16 @@ void start() {
 					Sleep(800);
 					system("CLS");
 				}
+				
 			}
 			else
 			{
 				cout << RED << "Admin Not found" << WHITE << endl;
 				Sleep(600);
 				system("cls");
+			
 			}
+			
 		}
 
 
@@ -780,4 +727,5 @@ void start() {
 		}
 
 	}
+
 }
