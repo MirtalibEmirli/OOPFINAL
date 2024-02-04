@@ -45,7 +45,7 @@ void start() {
 	string menuAdmin = R"(
 				[1] =>  Create Quiz
 				[2] =>  Start Quiz
-				[3] =>  Leader Board(Top - 10)
+				[3] =>  Leader Board(min to max)
 				[4] =>  Add admin :)
 				[5] =>  Show all admins ^!^
 				[0] =>  Exit )";
@@ -351,16 +351,22 @@ void start() {
 			cin >> username;
 
 			cout << "password: ";
+
+			
+
 			Admin* adminnezaret = new Admin(username, password);
 			cin >> password;
+			fstream admns("admins.txt");
+			admns << username << "/" << password << endl; 
+			admns.close();
 			Sleep(100);
 
 			system("cls");
 
-			if (db.checkAdmin(username))//yaz
+			if (db.checkAdmin(username))
 			{
 
-				if (db.adminLogin(username, password))//uaz
+				if (db.adminLogin( password))
 				{
 
 					while (true)
@@ -578,26 +584,35 @@ void start() {
 						}//
 
 						else if (v == 3) {
-							//seher bax
+							fstream result("results.txt");
 
-							/*fstream result("results.txt");
-							string admin;
-							vector<string> admins;
-							
+							vector<pair<int, string>> reslts;
 
-							for (size_t i = 1; i < 4; i++)
+							string rsltln;
+							while (getline(result, rsltln)) {
+								string name = rsltln.substr(0, rsltln.find("/"));
+								string t = rsltln.substr(rsltln.find("/") + 1, rsltln.length() - rsltln.find("/"));
+								int point = stoi(t);
+								reslts.push_back(make_pair(point, name));
+							}
+
+
+
+
+							multiset<pair<int, string >> a;
+							for (auto& pair : reslts)
 							{
-								int questionend = admins[i].find("^");
-								string question = admins[i].substr(0, questionend);
-								cout << question << " " << endl;
-								cout << endl;
+								a.insert(pair);
 
-								int end2 = admins[i].find("*");
-								string variants = admins[i].substr(questionend + 1, admins[i].length()); 
+							}
+							for (auto& entry : a) {
+								cout<<BOLDCYAN << "player =>" << entry.second << "  point => " << entry.first <<WHITE << endl;
+							}
 
-								char correct = admins[i].back();
+							result.close();
+							Sleep(2500);
+							system("cls");
 
-							}*/
 							break;
 
 						}
@@ -621,7 +636,7 @@ void start() {
 								cout<<BOLDCYAN<<i<<" => " << admeen[i] <<WHITE << endl << endl; 
 							}
 
-							Sleep(2000);
+							Sleep(2600);
 							system("cls");
 						}
 						else if (v == 4) {

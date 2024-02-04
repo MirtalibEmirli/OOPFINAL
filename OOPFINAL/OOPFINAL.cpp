@@ -17,21 +17,21 @@ using namespace std;
 #include <cassert>
 #include "clacces.h"
 #include <map>
+#include <set>
+#include <algorithm>
 #include "Header.h"
+
 
 
 
 int main() 
 {
-	/*map<string, int> resultss; 
 	
-	resultss["admin"] = 10; 
-	resultss.key_comp(); */
-	start(); 
-	//Database db;
-	//db.createquiz();
-	//cout << BOLDCYAN << "A" << endl;
 
-	//creaatequiz(); 
+
+
+	start();
+	
+
 
 }

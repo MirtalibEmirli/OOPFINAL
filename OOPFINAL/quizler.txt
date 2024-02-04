@@ -1,8 +1,5 @@
 Cars 
-Places
-Language
-Countries
-Formula 1
-Yagmur
-Rain
-asdc
+Hava
+Formula1
+Baki
+Izlanda

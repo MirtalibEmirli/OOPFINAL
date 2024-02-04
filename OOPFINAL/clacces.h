@@ -107,7 +107,10 @@ class Result {
 	int InCorrect = 0; 
 	int Pass = 0; 
 	int result=0; 
+	string username;
+	vector<Result> reslts;
 public: 
+	Result(){}
 	void increasecorrect() { 
 		Correct++; 
 
@@ -134,6 +137,8 @@ public:
 		return Pass;
 
 	}
+
+
 
 };
 
@@ -301,19 +306,43 @@ public:
 
 	bool checkAdmin(string username)
 	{
+		fstream admns("admins.txt");
+
+		string data;
+		while (getline(admns, data, '/')) {
+			if (data == username) {
+				admns.close(); 
+
+				return true;
+			}
+		}
+		admns.close(); 
+
+	
+		/*
+
+
+
 		for (size_t i = 0; i < admins.getCount(); i++)
 
 			if (admins.getItems()[i]->GetUsername() == username)
 				return true;
-		return false;
+		return false;*/
 	}
 
-	bool adminLogin(string username, string password)
+	bool adminLogin(string password)
 	{
-		for (size_t i = 0; i < admins.getCount(); i++)
-			if (admins.getItems()[i]->GetUsername() == username && admins.getItems()[i]->GetPassword() == password)
+		fstream admns("admins.txt"); 
+		 
+		string data; 
+		while (getline(admns, data, '/')) { 
+			if (data == password) {
+				admns.close(); 
+
 				return true;
-		return false;
+			}
+		}
+		admns.close();
 	}
 
 	void createquiz()noexcept { 
