@@ -1,40 +1,10 @@
 ﻿#pragma once
-
-
-
-
-
-
-
 void start() {
 #pragma region datas 
 	Database db;
 
 	Admin* admin = new Admin("admin", "admin");
 	db.admins.addadmin(admin);
-
-	
-
-	/*fstream adminss("admins.txt", ios::app);
-
-
-	string a;
-	vector<string> adminler;
-	while (getline(adminss, a)) {
-		adminler.push_back(a);
-
-	}
-
-
-	for (size_t i = 0; i < adminler.size(); i++)
-	{
-		if(adminler[i].)
-	}
-	adminss << admin->GetUsername() << " " << admin->GetPassword() << endl; 
-
-	adminss.close();*/
-
-
 
 	string menuOne = R"(
 				[1] => As Gusest
@@ -166,11 +136,6 @@ void start() {
 						}
 
 
-
-
-
-
-
 						string question;
 						vector<string> questions;
 						while (getline(quiz1, question)) {
@@ -261,10 +226,6 @@ void start() {
 
 						}
 
-
-
-
-
 						if (sans == 0) {
 							Sleep(500);
 							system("cls");
@@ -317,20 +278,11 @@ void start() {
 						break;
 					}
 			
-
-
 				}
 
 				break;
 
-
-				
-
-
 			}
-
-
-
 
 		}
 
@@ -395,8 +347,6 @@ void start() {
 
 							while (true)
 							{
-
-
 
 									fstream file1("quizler.txt");
 									if (!file1.is_open()) {
@@ -567,21 +517,12 @@ void start() {
 
 									break;
 								
-
-
-								
-
-
-
-
-
-
 							}
 
 
 							break;
 
-						}//
+						}
 
 						else if (v == 3) {
 							fstream result("results.txt");
@@ -676,9 +617,6 @@ void start() {
 							break;
 						}
 
-
-
-
 					}
 
 				}
@@ -730,7 +668,6 @@ void start() {
 			break;
 
 		}
-
 
 		else
 		{
